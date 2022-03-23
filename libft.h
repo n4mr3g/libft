@@ -173,4 +173,40 @@ int		ft_tolower(int c);
 // Converts the letter 'c' to upper case, if possible.
 int		ft_toupper(int c);
 
+/*-----------BONUS-----------*/
+
+// Allocates (with malloc) and returns a new element.
+t_list	*ft_lstnew(void *content);
+
+// Adds the element ’new’ at the beginning of the list 'lst'. 
+void	ft_lstadd_front(t_list **lst, t_list *new);
+
+//  Adds the element 'new' at the end of the list 'lst'.
+void	ft_lstadd_back(t_list **lst, t_list *new);
+
+// Counts the number of elements in the list 'lst'.
+int		ft_lstsize(t_list *lst);
+
+// Returns the last element of the list 'lst'.
+t_list	*ft_lstlast(t_list *lst);
+
+// Frees the memory of the element pointed by 'lst',
+// using the function 'del'.
+void	ft_lstdelone(t_list *lst, void (*del)(void *));
+
+// Deletes and frees the element 'lst' and every successor
+// of that element, using the function 'del' and free(3).
+// Sets pointer to the list to NULL.
+void	ft_lstclear(t_list **lst, void (*del)(void *));
+
+// Iterates the list 'lst' and applies the function 'f'
+// to the content of each element.
+void	ft_lstiter(t_list *lst, void (*f)(void *));
+
+// Iterates the list 'lst' and applies the function 'f' to the
+// content of each element, creating a new list as a result.
+// The 'del' function is used to delete the content of an element if needed.
+// Returns a pointer to the new list, or NULL if the allocation fails.
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+
 #endif
